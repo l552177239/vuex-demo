@@ -1,6 +1,7 @@
 <template>
   <div class="Home">
-    VUE
+      Home<br />
+     <router-link to="/post">Post</router-link>
   </div>
 </template>
 
