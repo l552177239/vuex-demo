@@ -1,11 +1,11 @@
 <template>
-  <div class="Home">
-    VUE
+  <div id="post-body">
+    PostBody
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'post-body'
 }
 </script>
