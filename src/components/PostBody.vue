@@ -1,12 +1,17 @@
 <template>
   <div class="post-body">
     Postbody
+    <p>Message is: {{ msg }}</p>
+    <input v-model="msg" placeholder="edit me" />
   </div>
 </template>
 
 <script>
   export default {
-    name: 'post-body'
+    name: 'post-body',
+    data: () => ({
+      msg: ''
+    })
   }
 </script>
 
