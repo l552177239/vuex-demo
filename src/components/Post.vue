@@ -1,11 +1,12 @@
 <template>
   <div id="post">
-  <div class="upper">
-    <post-body></post-body>
-  </div>
-  <div class="bottom">
-    <comment-box></comment-box>
-  </div>
+    <p>{{ str }}{{ num }}</p>
+    <div class="upper">
+      <post-body @addnum='getnum'></post-body>
+    </div>
+    <div class="bottom">
+      <comment-box></comment-box>
+    </div>
   </div>
 </template>
 
@@ -14,6 +15,16 @@
   import CommentBox from './CommentBox'
   export default {
     name: 'post',
+    data: () => ({
+      num: 0,
+      str: ''
+    }),
+    methods: {
+      getnum: function (str) {
+        this.str = str
+        this.num ++
+      }
+    },
     components: { PostBody, CommentBox }
   }
 </script>

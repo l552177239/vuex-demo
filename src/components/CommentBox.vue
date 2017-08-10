@@ -5,7 +5,7 @@
      <button type="submit" v-on:click="addComment">发布</button>
    </div>
    <ul>
-    <li v-for="comment in reversedMessage">
+    <li v-for="comment in comments">
       {{ comment.text }}
     </li>
    </ul>
@@ -13,27 +13,25 @@
 </template>
 
 <script>
+  import * as types from '../store/mutation-types'
+
   export default {
     name: 'comment-box',
-    data: () => ({
-      comments: [
-        {
-          text: 'hello git'
-        },
-        {
-          text: 'hello vuejs'
-        }
-      ]
-    }),
     computed: {
-      reversedMessage: function () {
+      reversedComments: function () {
         return this.comments.slice().reverse()
+      },
+      comments: function () {
+        return this.$store.state.comment.all
       }
     },
     methods: {
       addComment: function () {
-        const text = document.getElementById('commentForm').value
-        this.comments.push({ text })
+        const input = document.getElementById('commentForm')
+        if (input.value !== '') {
+          this.$store.commit(types.ADD_COMMENT, { text: input.value })
+          input.value = ''
+        }
       }
     }
   }

@@ -1,15 +1,17 @@
 <template>
   <div class="post-body">
-    Postbody
+    <input type='button' value='+1' @click='setnum'/>
   </div>
 </template>
 
 <script>
   export default {
     name: 'post-body',
-    data: () => ({
-      msg: ''
-    })
+    methods: {
+      setnum: function () {
+        this.$emit('addnum', '数量：')
+      }
+    }
   }
 </script>
 
