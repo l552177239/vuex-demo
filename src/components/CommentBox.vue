@@ -5,7 +5,7 @@
      <button type="submit" v-on:click="addComment">发布</button>
    </div>
    <ul>
-    <li v-for="comment in comments">
+    <li v-for="comment in reversedComments">
       {{ comment.text }}
     </li>
    </ul>
@@ -33,6 +33,9 @@
           input.value = ''
         }
       }
+    },
+    created () {
+      this.$store.dispatch('getAllPosts')
     }
   }
 </script>

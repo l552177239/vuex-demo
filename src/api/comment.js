@@ -5,7 +5,7 @@ const _comments = [
 ]
 
 export default {
-  getComments(item){
+  getComments (item) {
     setTimeout(() => item(_comments), 2000)
   }
 }
